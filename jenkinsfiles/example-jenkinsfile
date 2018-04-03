@@ -9,7 +9,7 @@ pipeline {
 
   stages {
     stage('Checkout') {
-
+      agent any
       steps {
         git 'https://github.com/rohanpatnaik/spring-petclinic.git'
       }
