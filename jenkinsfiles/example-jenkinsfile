@@ -29,6 +29,7 @@ pipeline {
           if ( env.BRANCH_NAME == 'master' ) {
             pom = readMavenPom file: 'pom.xml'
             TAG = pom.version
+            echo 'Pulling...' + pom.version
           } else {
             TAG = env.BRANCH_NAME
           }
