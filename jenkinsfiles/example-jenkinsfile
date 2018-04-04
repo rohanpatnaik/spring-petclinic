@@ -47,6 +47,7 @@ pipeline {
       steps {
         //sample dummy step
         sh 'sleep 4'
+        junit '**/target/surefire-reports/TEST-*.xml'
       }
     }
     stage('Another stage') {
