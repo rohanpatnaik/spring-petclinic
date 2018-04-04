@@ -35,6 +35,8 @@ pipeline {
         }
       }
     }
+    
+       
     stage('Deploy to Dev') {
       agent any
       steps {
@@ -51,12 +53,11 @@ pipeline {
         junit '**/target/surefire-reports/TEST-*.xml'
       }
     }
-    stage('Another stage') {
+    stage('Acceptance_Test') {
       agent any
       steps {
-        //sample dummy step
-        sh 'sleep 4'
-      }
+            sh "cd regression-suite"
+            sh "mvn clean -B test -DPETCLINIC_URL=http://petclinic-tomcat:8080/petclinic/"
     }
   }
 }
