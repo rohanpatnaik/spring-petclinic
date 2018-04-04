@@ -403,7 +403,28 @@
     </build>
     <reporting>
         <plugins>
-
+            
+            <!-- Calling Integration tests -->
+   <plugin>
+       <groupId>org.apache.maven.plugins</groupId>
+       <artifactId>maven-failsafe-plugin</artifactId>
+       <version>2.19</version>
+       <configuration>
+           <includes>
+               <include>**/*RunCukesTest.java</include>
+           </includes>
+       </configuration>
+       <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+   </plugin>
+            
+            
             <!--  integrate maven-cobertura-plugin to project site  -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
