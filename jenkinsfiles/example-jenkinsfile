@@ -12,6 +12,7 @@ pipeline {
       agent any
       steps {
         git 'https://github.com/rohanpatnaik/spring-petclinic.git'
+        echo 'Pulling...' + env.BRANCH_NAME
       }
     }
 
